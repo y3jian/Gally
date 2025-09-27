@@ -1,0 +1,46 @@
+# -------------------------
+# Global dependencies / builds
+# -------------------------
+**/node_modules/
+**/dist/
+**/build/
+web-build/
+.metro-health-check*
+
+# -------------------------
+# Expo / React Native
+# -------------------------
+.expo/
+.expo-shared/
+expo-env.d.ts
+# If using managed Expo, ignore native folders
+/ios
+/android
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# -------------------------
+# Secrets / env
+# -------------------------
+.env
+.env*.local
+*.pem
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.jks
+
+# -------------------------
+# OS / IDE junk
+# -------------------------
+.DS_Store
+.vscode/
+.idea/
+*.orig.*
