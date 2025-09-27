@@ -9,31 +9,27 @@ export default function ChatScreen() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const CHAT_URL = "https://gally-eight.vercel.app/api/chat";
 
   async function send() {
     const q = input.trim();
-    if (!q || loading) return;
-    setMessages(m => [...m, { role: "user", text: q }]);
-    setInput(""); setLoading(true);
+  if (!q || loading) return;
+  setMessages(m => [...m, { role: "user", text: q }]);
+  setInput(""); setLoading(true);
 
-    try {
-      const r = await fetch(`${API_BASE}/api/chat`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: q })
-      });
+  try {
+    const resp = await fetch(CHAT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: q }),
+    });
 
-//       const data = await r.json();
-//       setMessages(m => [...m, { role: "assistant", text: data.answer ?? "Sorry, I don't know." }]);
-//     } catch {
-//       setMessages(m => [...m, { role: "assistant", text: "Network error. Try again." }]);
-//     } finally { setLoading(false); }
-//   }
-const text = await r.text(); // read raw for debugging
-    if (!r.ok) {
-      setMessages(m => [...m, { role: "assistant", text: `HTTP ${r.status}: ${text}` }]);
+    const text = await resp.text();   // capture raw response
+    if (!resp.ok) {
+      setMessages(m => [...m, { role: "assistant", text: `HTTP ${resp.status}: ${text}` }]);
       return;
     }
+
     const data = JSON.parse(text);
     setMessages(m => [...m, { role: "assistant", text: data.answer ?? "No answer" }]);
   } catch (err: any) {
