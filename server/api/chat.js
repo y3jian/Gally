@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
     // Force v1 (stops it from hitting v1beta)
     const genAI = new GoogleGenerativeAI(key, { apiVersion: "v1" });
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "models/gemini-2.5-flash" });
     const resp  = await model.generateContent(question);
 
     return res.status(200).json({ answer: resp.response.text() });
