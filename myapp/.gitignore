@@ -41,3 +41,14 @@ app-example
 # generated native folders
 /ios
 /android
+
+# ignore node_modules everywhere
+**/node_modules/
+# misc
+.expo/
+.expo-shared/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.DS_Store
