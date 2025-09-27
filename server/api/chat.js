@@ -72,8 +72,6 @@ generationConfig: { maxOutputTokens: 150} };
       .map(p => p.text || "")
       .join("")
       .trim();
-
-    return res.status(200).json({ answer: text || "I couldn't find a clear answer. Try asking another way?" });
   } catch (e) {
     console.error("chat handler fatal:", e);
     return res.status(500).json({ error: "Chat failed", detail: String(e?.message || e) });
