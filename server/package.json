@@ -1,0 +1,17 @@
+{
+  "name": "gemini-chat-api",
+  "version": "1.0.0",
+  "description": "Serverless Gemini API endpoint",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node api/chat.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}
+
