@@ -23,7 +23,8 @@ export default async function handler(req, res) {
     //const model = genAI.getGenerativeModel({ model: "models/gemini-2.5-flash" });
 
     const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${key}`;
-    const payload = { contents: [{ parts: [{ text: question }] }] };
+    const payload = { contents: [{ parts: [{ text: question }] }],
+generationConfig: { maxOutputTokens: 150} };
 
     // tiny retry loop for 429/5xx
     let lastErr, resp, json;
@@ -71,9 +72,6 @@ export default async function handler(req, res) {
       .map(p => p.text || "")
       .join("")
       .trim();
-    const maxLength = 250;
-    const limitedText = text.slice(0, maxLength);
-    return res.status(200).json({ answer: limitedText || "I couldn't find a clear answer. Try asking another way?" });
 
     return res.status(200).json({ answer: text || "I couldn't find a clear answer. Try asking another way?" });
   } catch (e) {
