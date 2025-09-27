@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, FlatList, ActivityIndicator } from "react-native";
 
-const API_BASE = "https://gally-eight.vercel.app/api/chat";
+const API_BASE = "https://gally-eight.vercel.app";
 
 type Msg = { role: "user" | "assistant"; text: string };
 
@@ -22,12 +22,26 @@ export default function ChatScreen() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: q })
       });
-      const data = await r.json();
-      setMessages(m => [...m, { role: "assistant", text: data.answer ?? "Sorry, I don't know." }]);
-    } catch {
-      setMessages(m => [...m, { role: "assistant", text: "Network error. Try again." }]);
-    } finally { setLoading(false); }
+
+//       const data = await r.json();
+//       setMessages(m => [...m, { role: "assistant", text: data.answer ?? "Sorry, I don't know." }]);
+//     } catch {
+//       setMessages(m => [...m, { role: "assistant", text: "Network error. Try again." }]);
+//     } finally { setLoading(false); }
+//   }
+const text = await r.text(); // read raw for debugging
+    if (!r.ok) {
+      setMessages(m => [...m, { role: "assistant", text: `HTTP ${r.status}: ${text}` }]);
+      return;
+    }
+    const data = JSON.parse(text);
+    setMessages(m => [...m, { role: "assistant", text: data.answer ?? "No answer" }]);
+  } catch (err: any) {
+    setMessages(m => [...m, { role: "assistant", text: `Network error: ${String(err)}` }]);
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <View style={{ flex:1, backgroundColor:"#fff", paddingTop:50 }}>
