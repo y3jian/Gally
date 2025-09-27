@@ -26,6 +26,7 @@ export default async function handler(req, res) {
     const payload = { contents: [{ parts: [{ text: question }] }],
 generationConfig: { maxOutputTokens: 150} };
 
+
     // tiny retry loop for 429/5xx
     let lastErr, resp, json;
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -72,6 +73,9 @@ generationConfig: { maxOutputTokens: 150} };
       .map(p => p.text || "")
       .join("")
       .trim();
+      
+      return res.status(200).json({ answer: text })
+
   } catch (e) {
     console.error("chat handler fatal:", e);
     return res.status(500).json({ error: "Chat failed", detail: String(e?.message || e) });
