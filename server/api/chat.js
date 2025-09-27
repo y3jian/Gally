@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
     const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${key}`;
     const payload = { contents: [{ parts: [{ text: question }] }], 
-                        generationConfig: { maxOutputTokens: 300 } };
+                        generationConfig: { maxOutputTokens: 1000 } };
 
     // tiny retry loop for 429/5xx
     let lastErr, resp, json;
