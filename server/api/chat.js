@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
-    const { question } = body;
+    let { question } = body;
     if (!question) return res.status(400).json({ error: "Missing 'question' in body" });
 
     question = String(question).slice(0, 2000); // limit length
