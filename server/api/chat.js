@@ -17,13 +17,13 @@ export default async function handler(req, res) {
     if (!key) return res.status(500).json({ error: "GOOGLE_API_KEY missing in Vercel env" });
 
     const genAI = new GoogleGenerativeAI(key);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const resp = await model.generateContent(question);
     const text = resp?.response?.text?.();
     return res.status(200).json({ answer: text ?? "" });
   } catch (e) {
     console.error("Gemini handler error:", e);
-    return res.status(500).json({ error: String(e?.message || e) }); // ← send real error
+    return res.status(500).json({ error: String(e?.message || e) });
   }
 }
