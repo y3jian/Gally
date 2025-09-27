@@ -71,7 +71,7 @@ export default async function handler(req, res) {
       .map(p => p.text || "")
       .join("")
       .trim();
-    const maxLength = 500;
+    const maxLength = 250;
     const limitedText = text.slice(0, maxLength);
     return res.status(200).json({ answer: limitedText || "I couldn't find a clear answer. Try asking another way?" });
 
