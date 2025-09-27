@@ -23,8 +23,8 @@ export default async function handler(req, res) {
     //const model = genAI.getGenerativeModel({ model: "models/gemini-2.5-flash" });
 
     const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${key}`;
-    const payload = { contents: [{ parts: [{ text: question }] }], 
-                        generationConfig: {maxOutputTokens: 150, temperature: 0.2, topP: 0.95 },
+    const payload = { contents: [{ parts: [{ text: "Answer in fewer than 300 words: " + question }] }], 
+                        generationConfig: {temperature: 0.2, topP: 0.95 },
                     };
 
     // tiny retry loop for 429/5xx
