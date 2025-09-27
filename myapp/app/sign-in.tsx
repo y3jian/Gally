@@ -1,33 +1,38 @@
-import { View, Button, TextInput } from 'react-native';
+import { View, TextInput, Button } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
+import { useThemedStyles } from './styles/theme'; // import our shared styles
 
 export default function SignIn() {
   const router = useRouter();
+  const styles = useThemedStyles(); // get themed styles
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleLogin() {
-    // TODO: validate login here
-    router.replace('/home'); // replace so user can't go back to login
+    router.replace('/home');
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
+    <View style={styles.container}>
       <TextInput
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        style={{ marginBottom: 10, borderWidth: 1, padding: 8 }}
+        placeholderTextColor="gray"
+        style={styles.input}
       />
       <TextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        style={{ marginBottom: 20, borderWidth: 1, padding: 8 }}
+        placeholderTextColor="gray"
+        style={styles.input}
       />
-      <Button title="Sign In" onPress={handleLogin} />
+      <View style={styles.buttonContainer}>
+        <Button title="Sign In" onPress={handleLogin} />
+      </View>
     </View>
   );
 }
