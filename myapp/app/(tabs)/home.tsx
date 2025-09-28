@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Pressable, ImageBackground } from 'react-native';
 import { useThemedStyles } from './../styles/theme'; // import our shared styles
 import GreenAnimation from '../../components/green_animation';
+import FlowModal from './flow_modal';
 
 interface Task {
   id: number;
@@ -96,7 +97,7 @@ export default function Home() {
           <Text style={styles.phaseDay}>Day 3</Text>
           <Text style={styles.phaseName}>Menstrual Phase</Text>
           <Pressable
-              style={styles.buttonContainer}
+              style={styles.smallButtonContainer}
               onPress={() => setModalVisible1(true)}
           >
               <Text style={styles.buttonText}>+ Track Flow</Text>
@@ -106,7 +107,7 @@ export default function Home() {
         <View style={styles.dailyContainer}>
             <Text style={styles.largeTabTitle}>Daily Tasks</Text>
             <Pressable
-                style={styles.buttonContainer}
+                style={styles.smallButtonContainerWhite}
                 onPress={() => setModalVisible2(true)}
             >
                 <Text style={styles.buttonText}>+ Add a Task</Text>
@@ -123,6 +124,16 @@ export default function Home() {
             </Pressable>
           ))}
         </View>
+
+        <FlowModal
+          visible={modalVisible1}
+          onClose={() => setModalVisible1(false)}
+          onSave={() => setModalVisible1(false)}
+          // onSave={(data) => {
+          //   console.log('Saved flow:', data);
+          // }}
+        />
+
       </ImageBackground>
     </View>
   );

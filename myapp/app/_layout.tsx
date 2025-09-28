@@ -20,17 +20,17 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
         {/* Auth flow */}
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ title: '' }} />
-        <Stack.Screen name="sign-up" options={{ title: '' }} />
+        <Stack.Screen name="login" options={{ headerShown: false, title: '' }} />
+        <Stack.Screen name="sign-up" options={{ headerShown: false, title: '' }} />
 
         {/* Main app */}
         <Stack.Screen name="home" options={{ headerShown: false }} />
 
         {/* Modals */}
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="modal" options={{ headerShown: false , presentation: 'modal' }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

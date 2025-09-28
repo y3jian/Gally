@@ -67,6 +67,30 @@ export function useThemedStyles() {
       width: '70%',
       backgroundColor: colors.button,
     } as ViewStyle,
+
+    smallButtonContainer: {
+      fontFamily: 'Manrope_400Regular',
+      marginTop: 10,
+      marginBottom: 10,
+      paddingVertical: 8,
+      paddingHorizontal: 15,
+      borderRadius: 25,
+      // width: '70%',
+      backgroundColor: colors.button,
+    } as ViewStyle,
+
+    smallButtonContainerWhite: {
+      fontFamily: 'Manrope_400Regular',
+      marginTop: 10,
+      marginBottom: 10,
+      paddingVertical: 8,
+      paddingHorizontal: 15,
+      borderRadius: 25,
+      // width: '70%',
+      backgroundColor: colors.background,
+      borderColor: colors.border,
+      borderWidth: 1,
+    } as ViewStyle,
     
     buttonText: {
       fontFamily: 'Manrope_700Bold',
@@ -105,7 +129,8 @@ export function useThemedStyles() {
       fontFamily: 'Manrope_700Bold',
       fontSize: 28,
       alignItems: 'center',
-      textAlign: 'center'
+      textAlign: 'center',
+      color: colors.text,
     } as TextStyle,
 
     tabTitle: {
@@ -114,7 +139,8 @@ export function useThemedStyles() {
       // alignItems: 'center',
       alignSelf: 'flex-start',
       marginBottom: 20,
-      marginLeft: 50,
+      // marginLeft: 50,
+      color: colors.text,
     } as TextStyle,
 
     largeTabTitle: {
@@ -122,8 +148,9 @@ export function useThemedStyles() {
       fontSize: 28,
       // alignItems: 'center',
       alignSelf: 'flex-start',
-      marginBottom: 20,
-      marginLeft: 50,
+      // marginBottom: 20,
+      // marginLeft: 50,
+      color: colors.text,
     } as TextStyle,
 
     text: {
@@ -210,14 +237,17 @@ export function useThemedStyles() {
       paddingTop: 8,
       paddingBottom: 4,
       alignItems: 'center',
+      alignContent: 'center',
+      justifyContent: 'center',
       backgroundColor: colors.background,
       borderRadius: 16,
+      width: "90%",
 
     },
     calendarDay: {
       padding: 10,
       marginHorizontal: 5,
-      borderRadius: 16,
+      borderRadius: 25,
       alignItems: 'center',
       backgroundColor: colors.background,
     },
@@ -245,7 +275,7 @@ export function useThemedStyles() {
       alignItems: 'center',
       marginBottom: 20,
       marginHorizontal: 20,
-      padding: 10,
+      // padding: 10,
       // paddingHorizontal: 200,
       width: '80%',
       borderRadius: 25,
@@ -255,6 +285,7 @@ export function useThemedStyles() {
     },
     phaseDay: {
       fontFamily: 'Manrope_700Bold',
+      color: colors.text,
       fontSize: 20,
       marginBottom: 5,
     },
@@ -266,8 +297,11 @@ export function useThemedStyles() {
 
     dailyContainer: {
       flexDirection: 'row',
+      justifyContent: 'space-between',
       alignItems: 'center',
-      padding: 16,
+      // padding: 16,
+      marginBottom: 10,
+      width: "80%",
     },
 
     taskList: {
@@ -278,10 +312,10 @@ export function useThemedStyles() {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: 12,
+      padding: 6,
       paddingHorizontal: 20,
       marginVertical: 4,
-      marginHorizontal: 20,
+      // marginHorizontal: 20,
       borderRadius: 25,
       borderColor: colors.border,
       borderWidth: 1,
@@ -293,6 +327,7 @@ export function useThemedStyles() {
     taskText: {
       fontFamily: 'Manrope_400Regular',
       fontSize: 16,
+      color: colors.text,
     },
     checkbox: {
       width: 20,
@@ -317,6 +352,7 @@ export function useThemedStyles() {
       shadowOpacity: 0.1,
       shadowRadius: 4,
       elevation: 2,
+      width: "80%",
     },
     topBar: {
       height: 20,
@@ -330,8 +366,7 @@ export function useThemedStyles() {
     image: {
       width: 80,
       height: 80,
-      marginRight: 25,
-      marginLeft: 25,
+      marginBottom: 5,
     },
     textContainer: {
       flex: 1,
@@ -339,6 +374,7 @@ export function useThemedStyles() {
     imageContainer: {
       // flex: 1,
       alignItems: 'center',
+      marginRight: 10,
     },
     label: {
       fontFamily: 'Manrope_700Bold',
@@ -375,6 +411,47 @@ export function useThemedStyles() {
       alignItems: "center",
     },
 
+
+
+    modalBackdrop: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    flowChoiceContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginVertical: 12,
+    },
+    flowOption: {
+      borderWidth: 1,
+      borderColor: colors.text,
+      borderRadius: 8,
+      paddingVertical: 6,
+      paddingHorizontal: 12,
+    },
+    flowOptionSelected: {
+      backgroundColor: colors.green1,
+    },
+    flowOptionText: {
+      color: colors.text,
+    },
+    flowOptionTextSelected: {
+      color: colors.background,
+      fontWeight: 'bold',
+    },
+    symptomInput: {
+      borderWidth: 1,
+      borderColor: colors.text,
+      borderRadius: 8,
+      padding: 8,
+      height: 80,
+      textAlignVertical: 'top',
+      color: colors.text,
+      marginBottom: 16,
+    },
     //====== Chatbot ======
     avatar: {
     width: 44,

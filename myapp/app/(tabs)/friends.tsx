@@ -43,7 +43,7 @@ export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
     <ImageBackground
-        source={require('../../assets/images/green_background.png')} // local image
+        source={require('../../assets/images/short_background.png')} // local image
         style={styles.shortBackgroundImage}
         resizeMode="cover" // or 'contain', depending on your image
         >

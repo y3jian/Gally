@@ -4,6 +4,7 @@ import { Asset } from 'expo-asset';
 
 // Preload local images into an array
 const frames = [
+  require('../assets/animations/green/1.0.png'),
   require('../assets/animations/green/1.1.png'),
   require('../assets/animations/green/1.2.png'),
   require('../assets/animations/green/1.3.png'),
@@ -11,6 +12,7 @@ const frames = [
   require('../assets/animations/green/1.5.png'),
   require('../assets/animations/green/1.6.png'),
   require('../assets/animations/green/1.7.png'), 
+  require('../assets/animations/green/2.0.png'),
   require('../assets/animations/green/2.1.png'),
   require('../assets/animations/green/2.2.png'),
   require('../assets/animations/green/2.3.png'),
@@ -18,6 +20,7 @@ const frames = [
   require('../assets/animations/green/2.5.png'),
   require('../assets/animations/green/2.6.png'),
   require('../assets/animations/green/2.7.png'), 
+  require('../assets/animations/green/3.0.png'),
   require('../assets/animations/green/3.1.png'),
   require('../assets/animations/green/3.2.png'),
   require('../assets/animations/green/3.3.png'),
@@ -25,6 +28,7 @@ const frames = [
   require('../assets/animations/green/3.5.png'),
   require('../assets/animations/green/3.6.png'),
   require('../assets/animations/green/3.7.png'), 
+  require('../assets/animations/green/4.0.png'),
   require('../assets/animations/green/4.1.png'),
   require('../assets/animations/green/4.2.png'),
   require('../assets/animations/green/4.3.png'),
@@ -58,7 +62,7 @@ export default function GreenAnimation({ stage }: Props) {
         let i = 0;
       interval = setInterval(() => {
         setCurrentFrame(i);
-        if (i === 13) {
+        if (i === 15) {
           clearInterval(interval!);
         } else {
           i++;
@@ -69,7 +73,7 @@ export default function GreenAnimation({ stage }: Props) {
       let i = 13;
       interval = setInterval(() => {
         setCurrentFrame(i);
-        if (i === 27) {
+        if (i === 31) {
           clearInterval(interval!);
         } else {
           i++;
@@ -102,9 +106,10 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginVertical: 30,
   },
   image: {
     width: 300,
-    height: 350,
+    height: 220,
   },
 });
