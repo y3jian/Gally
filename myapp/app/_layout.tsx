@@ -21,7 +21,7 @@ export default function RootLayout() {
   if (!fontsLoaded) return null; // or <AppLoading /> if you want a splash screen
 
   return (
-    <ThemeProvider value={scheme === 'dark' ? LightTheme : DarkTheme }>
+    <ThemeProvider value={scheme === 'light' ? LightTheme : DarkTheme }>
       <Stack screenOptions={{ headerShown: false }}>
         {/* Auth flow */}
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
