@@ -118,7 +118,7 @@ export default function ChatScreen() {
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
     >
       {/* Header */}
-      <View style={[styles.chatHeader, { backgroundColor: "#FFE9EE" }]}>
+      <View style={[styles.chatHeader, { backgroundColor: "#FFE9EE", paddingTop: Platform.OS === "ios" ? 60 : 20 }]}>
         <Image
           source={require("../../assets/images/periodista.png")}
           style={styles.avatar}

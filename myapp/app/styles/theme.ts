@@ -479,7 +479,7 @@ export function useThemedStyles() {
     flexDirection: "row",
       alignItems: "center",
       backgroundColor: "shy-pink",   // soft pink background
-      paddingVertical: 12,
+      paddingVertical: 15,
       paddingHorizontal: 16,
       borderBottomWidth: 0.5,
       borderColor: "card",
