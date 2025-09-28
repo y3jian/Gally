@@ -51,7 +51,7 @@ export default function TabTwoScreen() {
                 resizeMode="cover" // or 'contain', depending on your image
             >
 
-                <Text style={[styles.tabTitle, { marginTop: 40 }]}>Your Status</Text>
+                <Text style={[styles.tabTitle, { marginTop: 150 }]}>Your Status</Text>
 
                 <CycleCard
                     image={require('../../assets/images/mascot.png')}

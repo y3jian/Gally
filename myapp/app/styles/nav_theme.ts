@@ -6,11 +6,11 @@ export const LightTheme = {
   ...NavigationLightTheme,
   colors: {
     ...NavigationLightTheme.colors,
-    primary: AppColors.matcha_green,
-    background: AppColors.white,
+    primary: AppColors.black,
+    background: AppColors.black,
     text: AppColors.black,
-    card: AppColors.card,
-    border: AppColors.border,
+    card: AppColors.growing_pink,
+    border: AppColors.black,
     notification: AppColors.shy_pink,
   },
 };
@@ -19,11 +19,11 @@ export const DarkTheme = {
   ...NavigationDarkTheme,
   colors: {
     ...NavigationDarkTheme.colors,
-    primary: AppColors.matcha_green,
+    primary: AppColors.black,
     background: AppColors.black,
     text:AppColors.white,
     card: AppColors.card,
-    border: AppColors.border,
+    border: AppColors.black,
     notification: AppColors.shy_pink,
   },
 };
