@@ -14,7 +14,7 @@ export default function SignIn() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.welcomeContainer}>
       <ImageBackground
         source={require('../assets/images/signinout_background.png')} // local image
         style={styles.backgroundImage}
@@ -34,7 +34,7 @@ export default function SignIn() {
         value={email}
         onChangeText={setEmail}
         placeholderTextColor="gray"
-        style={styles.input}
+        style={styles.loginInput}
       />
       <TextInput
         placeholder="Password"
@@ -42,7 +42,7 @@ export default function SignIn() {
         onChangeText={setPassword}
         secureTextEntry
         placeholderTextColor="gray"
-        style={styles.input}
+        style={styles.loginInput}
       />
 
       <Pressable

@@ -29,7 +29,7 @@ export function useThemedStyles() {
     container: {
       flex: 1,
       justifyContent: 'center',
-      padding: 20,
+      //padding: 20,
       backgroundColor: colors.background,
     } as ViewStyle,
     
@@ -69,8 +69,11 @@ export function useThemedStyles() {
       borderWidth: 1,
       borderColor: colors.card,
       padding: 8,
-      paddingHorizontal: 100,
-      color: colors.card,
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      width: '100%',
+      maxWidth: 320,
+      color: '#000000',
       backgroundColor: colors.background,
     } as TextStyle,
 
@@ -117,6 +120,45 @@ export function useThemedStyles() {
       color: colors.green1, // you can later make this dynamic if you want
       fontWeight: 'bold',
     } as TextStyle,
+
+    // ====== Login screen specific styles ======
+
+     loginContainer: {
+       flex: 1,
+      justifyContent: 'center',
+      marginTop: -100,
+      backgroundColor: colors.background,
+     } as ViewStyle,
+
+     loginImage: {
+      width: 250,
+      height: 350,
+      marginBottom: 20,
+      alignItems: 'center',
+      marginTop: -100,
+     } as ImageStyle,
+
+     loginInput:{
+      fontFamily: 'Manrope_400Regular',
+      marginBottom: 10,
+      marginTop: 10,
+      borderWidth: 1,
+      borderColor: colors.card,
+      padding: 8,
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      width: '100%',
+      maxWidth: 320,
+      color: '#000000',
+      backgroundColor: colors.background,
+     }as TextStyle,
+
+     inputContainer:{
+      paddingTop: 0,
+      width: '100%',
+      alignItems: 'center',
+     }
+
   });
 
   return styles;
