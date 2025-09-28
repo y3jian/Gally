@@ -117,7 +117,7 @@ export function useThemedStyles() {
     } as TextStyle,
 
     signUpLink: {
-      color: colors.green1, // you can later make this dynamic if you want
+      color: colors.green1,
       fontWeight: 'bold',
     } as TextStyle,
 

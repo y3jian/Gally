@@ -24,7 +24,7 @@ export default function RootLayout() {
         {/* Auth flow */}
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
         <Stack.Screen name="login" options={{ title: '' }} />
-        <Stack.Screen name="sign-up" options={{ title: 'Sign Up' }} />
+        <Stack.Screen name="sign-up" options={{ title: '' }} />
 
         {/* Main app */}
         <Stack.Screen name="home" options={{ headerShown: false }} />

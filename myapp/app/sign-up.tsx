@@ -1,4 +1,4 @@
-import { View, Button, TextInput } from 'react-native';
+import { View, Button, TextInput, ImageBackground, Text, Image, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { useThemedStyles } from './styles/theme'; // import our shared styles
@@ -9,6 +9,7 @@ export default function SignUp() {
   const styles = useThemedStyles(); // get themed styles
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
 
   function handleRegister() {
     // TODO: create account
@@ -16,7 +17,21 @@ export default function SignUp() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.welcomeContainer}>
+      <ImageBackground
+              source={require('../assets/images/pink_background.png')} // local image
+              style={styles.backgroundImage}
+              resizeMode="cover" // or 'contain', depending on your image
+      />
+              
+      <Text style={styles.title}>Sign Up</Text>
+            
+      <Image
+              source={require('../assets/images/mascot_signinout.png')}
+              style={styles.welcomeImage}
+              resizeMode="contain"
+      />
+
       <TextInput
         placeholder="Email"
         value={email}
@@ -34,13 +49,19 @@ export default function SignUp() {
       />
       <TextInput
         placeholder="Repeat Password"
-        value={password}
-        onChangeText={setPassword}
+        value={repeatPassword}
+        onChangeText={setRepeatPassword}
         secureTextEntry
         placeholderTextColor="gray"
         style={styles.input}
       />
-      <Button title="Sign Up" onPress={handleRegister} />
+      {/* <Button title="Sign Up" onPress={handleRegister} style={styles.button} /> */}
+      <Pressable
+      style={styles.buttonContainer}
+        onPress={() => router.push('/home')}
+      >
+        <Text style={styles.buttonText}>Sign Up</Text>
+            </Pressable>
     </View>
   );
 }
