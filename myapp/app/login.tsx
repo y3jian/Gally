@@ -52,6 +52,10 @@ export default function SignIn() {
         <Text style={styles.buttonText}>Login</Text>
       </Pressable>
 
+      <Pressable>
+        <Text style={styles.text}>Forgot Password</Text>
+      </Pressable>
+
       </ImageBackground>
     </View>
   );
