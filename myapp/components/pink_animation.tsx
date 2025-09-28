@@ -4,34 +4,34 @@ import { Asset } from 'expo-asset';
 
 // Preload local images into an array
 const frames = [
-  require('../assets/animations/green/1.1.png'),
-  require('../assets/animations/green/1.2.png'),
-  require('../assets/animations/green/1.3.png'),
-  require('../assets/animations/green/1.4.png'),
-  require('../assets/animations/green/1.5.png'),
-  require('../assets/animations/green/1.6.png'),
-  require('../assets/animations/green/1.7.png'), 
-  require('../assets/animations/green/2.1.png'),
-  require('../assets/animations/green/2.2.png'),
-  require('../assets/animations/green/2.3.png'),
-  require('../assets/animations/green/2.4.png'),
-  require('../assets/animations/green/2.5.png'),
-  require('../assets/animations/green/2.6.png'),
-  require('../assets/animations/green/2.7.png'), 
-  require('../assets/animations/green/3.1.png'),
-  require('../assets/animations/green/3.2.png'),
-  require('../assets/animations/green/3.3.png'),
-  require('../assets/animations/green/3.4.png'),
-  require('../assets/animations/green/3.5.png'),
-  require('../assets/animations/green/3.6.png'),
-  require('../assets/animations/green/3.7.png'), 
-  require('../assets/animations/green/4.1.png'),
-  require('../assets/animations/green/4.2.png'),
-  require('../assets/animations/green/4.3.png'),
-  require('../assets/animations/green/4.4.png'),
-  require('../assets/animations/green/4.5.png'),
-  require('../assets/animations/green/4.6.png'),
-  require('../assets/animations/green/4.7.png'),
+  require('../assets/animations/pink/1.1.png'),
+  require('../assets/animations/pink/1.2.png'),
+  require('../assets/animations/pink/1.3.png'),
+  require('../assets/animations/pink/1.4.png'),
+  require('../assets/animations/pink/1.5.png'),
+  require('../assets/animations/pink/1.6.png'),
+  require('../assets/animations/pink/1.7.png'), 
+  require('../assets/animations/pink/2.1.png'),
+  require('../assets/animations/pink/2.2.png'),
+  require('../assets/animations/pink/2.3.png'),
+  require('../assets/animations/pink/2.4.png'),
+  require('../assets/animations/pink/2.5.png'),
+  require('../assets/animations/pink/2.6.png'),
+  require('../assets/animations/pink/2.7.png'), 
+  require('../assets/animations/pink/3.1.png'),
+  require('../assets/animations/pink/3.2.png'),
+  require('../assets/animations/pink/3.3.png'),
+  require('../assets/animations/pink/3.4.png'),
+  require('../assets/animations/pink/3.5.png'),
+  require('../assets/animations/pink/3.6.png'),
+  require('../assets/animations/pink/3.7.png'), 
+  require('../assets/animations/pink/4.1.png'),
+  require('../assets/animations/pink/4.2.png'),
+  require('../assets/animations/pink/4.3.png'),
+  require('../assets/animations/pink/4.4.png'),
+  require('../assets/animations/pink/4.5.png'),
+  require('../assets/animations/pink/4.6.png'),
+  require('../assets/animations/pink/4.7.png'),
 ];
 
 
@@ -46,7 +46,7 @@ type Props = {
   stage: number; // 0 = start, 1 = halfway condition, 2 = complete
 };
 
-export default function GreenAnimation({ stage }: Props) {
+export default function PinkAnimation({ stage }: Props) {
 
   const [currentFrame, setCurrentFrame] = useState(0);
 
@@ -58,7 +58,7 @@ export default function GreenAnimation({ stage }: Props) {
         let i = 0;
       interval = setInterval(() => {
         setCurrentFrame(i);
-        if (i === 13) {
+        if (i === 4) {
           clearInterval(interval!);
         } else {
           i++;
@@ -66,10 +66,10 @@ export default function GreenAnimation({ stage }: Props) {
       }, 80); // frame speed (ms)
     } else if (stage === 2) {
       // animate from 4 → 8
-      let i = 13;
+      let i = 4;
       interval = setInterval(() => {
         setCurrentFrame(i);
-        if (i === 27) {
+        if (i === 8) {
           clearInterval(interval!);
         } else {
           i++;
