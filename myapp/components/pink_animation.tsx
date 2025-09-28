@@ -4,6 +4,7 @@ import { Asset } from 'expo-asset';
 
 // Preload local images into an array
 const frames = [
+  require('../assets/animations/pink/1.0.png'),
   require('../assets/animations/pink/1.1.png'),
   require('../assets/animations/pink/1.2.png'),
   require('../assets/animations/pink/1.3.png'),
@@ -11,6 +12,7 @@ const frames = [
   require('../assets/animations/pink/1.5.png'),
   require('../assets/animations/pink/1.6.png'),
   require('../assets/animations/pink/1.7.png'), 
+  require('../assets/animations/pink/2.0.png'),
   require('../assets/animations/pink/2.1.png'),
   require('../assets/animations/pink/2.2.png'),
   require('../assets/animations/pink/2.3.png'),
@@ -18,6 +20,7 @@ const frames = [
   require('../assets/animations/pink/2.5.png'),
   require('../assets/animations/pink/2.6.png'),
   require('../assets/animations/pink/2.7.png'), 
+  require('../assets/animations/pink/3.0.png'),
   require('../assets/animations/pink/3.1.png'),
   require('../assets/animations/pink/3.2.png'),
   require('../assets/animations/pink/3.3.png'),
@@ -25,6 +28,7 @@ const frames = [
   require('../assets/animations/pink/3.5.png'),
   require('../assets/animations/pink/3.6.png'),
   require('../assets/animations/pink/3.7.png'), 
+  require('../assets/animations/pink/4.0.png'),
   require('../assets/animations/pink/4.1.png'),
   require('../assets/animations/pink/4.2.png'),
   require('../assets/animations/pink/4.3.png'),
@@ -58,7 +62,7 @@ export default function PinkAnimation({ stage }: Props) {
         let i = 0;
       interval = setInterval(() => {
         setCurrentFrame(i);
-        if (i === 4) {
+        if (i === 15) {
           clearInterval(interval!);
         } else {
           i++;
@@ -66,10 +70,10 @@ export default function PinkAnimation({ stage }: Props) {
       }, 80); // frame speed (ms)
     } else if (stage === 2) {
       // animate from 4 → 8
-      let i = 4;
+      let i = 15;
       interval = setInterval(() => {
         setCurrentFrame(i);
-        if (i === 8) {
+        if (i === 31) {
           clearInterval(interval!);
         } else {
           i++;

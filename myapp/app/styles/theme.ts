@@ -15,6 +15,7 @@ export function useThemedStyles() {
     background: dark ? AppColors.black : AppColors.white,
     text: dark ? AppColors.white : AppColors.black,
     card: AppColors.card,
+    border: AppColors.border,
     pink1: AppColors.growing_pink,
     pink2: AppColors.sleeping_pink,
     pink3: AppColors.shy_pink,
@@ -44,6 +45,19 @@ export function useThemedStyles() {
       // marginLeft: -100,           // shift left by 10px
     },
 
+    shortBackgroundImage: {
+      flex: 1,
+      justifyContent: 'center', // vertical alignment
+      alignItems: 'center',     // horizontal alignment
+     width: SCREEN_WIDTH, // full width
+      height: SCREEN_HEIGHT/4,   // height adjusts to content
+      alignSelf: 'center', // horizontally center
+      // paddingHorizontal: 100,
+      // marginLeft: -100,           // shift left by 10px
+    },
+
+    //======= Buttons ========
+
     buttonContainer: {
       fontFamily: 'Manrope_400Regular',
       marginTop: 20,
@@ -60,6 +74,16 @@ export function useThemedStyles() {
       fontSize: 18,
       textAlign: 'center'
     } as TextStyle,
+
+    buttonRow: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
+
+    buttonCol: {
+      flexDirection: 'column',
+      justifyContent: "space-between",
+    },
 
     // ====== Text ======
     
@@ -82,6 +106,24 @@ export function useThemedStyles() {
       fontSize: 28,
       alignItems: 'center',
       textAlign: 'center'
+    } as TextStyle,
+
+    tabTitle: {
+      fontFamily: 'Manrope_700Bold',
+      fontSize: 20,
+      // alignItems: 'center',
+      alignSelf: 'flex-start',
+      marginBottom: 20,
+      marginLeft: 50,
+    } as TextStyle,
+
+    largeTabTitle: {
+      fontFamily: 'Manrope_700Bold',
+      fontSize: 28,
+      // alignItems: 'center',
+      alignSelf: 'flex-start',
+      marginBottom: 20,
+      marginLeft: 50,
     } as TextStyle,
 
     text: {
@@ -160,22 +202,29 @@ export function useThemedStyles() {
       
      },
 
+    //===== Home Page ======
+
     calendarContainer: {
       flexDirection: 'row',
-      marginBottom: 20,
+      // marginBottom: 20,
       paddingTop: 8,
       paddingBottom: 4,
       alignItems: 'center',
+      backgroundColor: colors.background,
+      borderRadius: 16,
+
     },
     calendarDay: {
       padding: 10,
       marginHorizontal: 5,
-      borderRadius: 10,
+      borderRadius: 16,
       alignItems: 'center',
-      backgroundColor: colors.card,
+      backgroundColor: colors.background,
     },
     calendarDayActive: {
-      backgroundColor: colors.green1,
+      // backgroundColor: colors.green1,
+      borderColor: colors.border,
+      borderWidth: 2,
     },
     calendarWeekDay: {
       fontFamily: 'Manrope_400Regular',
@@ -190,14 +239,19 @@ export function useThemedStyles() {
     mascotImage: {
       width: 150,
       height: 150,
-      marginVertical: 20,
+      // marginVertical: 20,
     },
     phaseContainer: {
       alignItems: 'center',
       marginBottom: 20,
+      marginHorizontal: 20,
       padding: 10,
-      borderRadius: 12,
-      backgroundColor: colors.card,
+      // paddingHorizontal: 200,
+      width: '80%',
+      borderRadius: 25,
+      borderColor: colors.border,
+      borderWidth: 1,
+      backgroundColor: colors.background,
     },
     phaseDay: {
       fontFamily: 'Manrope_700Bold',
@@ -209,20 +263,32 @@ export function useThemedStyles() {
       fontSize: 16,
       color: colors.text,
     },
+
+    dailyContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 16,
+    },
+
     taskList: {
-      width: '100%',
+      width: '80%',
+      flex: 1
     },
     taskItem: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: 12,
+      paddingHorizontal: 20,
       marginVertical: 4,
-      borderRadius: 10,
-      backgroundColor: colors.card,
+      marginHorizontal: 20,
+      borderRadius: 25,
+      borderColor: colors.border,
+      borderWidth: 1,
+      backgroundColor: colors.background,
     },
     taskItemCompleted: {
-      backgroundColor: colors.green2,
+      backgroundColor: colors.green1,
     },
     taskText: {
       fontFamily: 'Manrope_400Regular',
@@ -234,15 +300,84 @@ export function useThemedStyles() {
       borderRadius: 4,
       borderWidth: 1,
       borderColor: colors.text,
+      backgroundColor: colors.card,
     },
     checkboxChecked: {
-      backgroundColor: colors.green1,
+      backgroundColor: colors.green2,
     },
 
+    //====== Cycle Card ======
+    card: {
+      backgroundColor: colors.background,
+      borderRadius: 25,
+      overflow: 'hidden', // ensures bar + content respect rounded corners
+      marginVertical: 8,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 2,
+    },
+    topBar: {
+      height: 20,
+      backgroundColor: colors.pink2, // default fallback
+    },
+    content: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 16,
+    },
+    image: {
+      width: 80,
+      height: 80,
+      marginRight: 25,
+      marginLeft: 25,
+    },
+    textContainer: {
+      flex: 1,
+    },
+    imageContainer: {
+      // flex: 1,
+      alignItems: 'center',
+    },
+    label: {
+      fontFamily: 'Manrope_700Bold',
+      color: colors.text,
+      marginBottom: 4,
+    },
+    value: {
+      fontFamily: 'Manrope_400Regular',      
+      color: colors.text,
+    },
 
+    //====== Modal ======
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: colors.background,
+      justifyContent: "center",
+      alignItems: "center",
+    },
 
+    modalContent: {
+      width: "80%",
+      backgroundColor: colors.background,
+      borderRadius: 12,
+      padding: 20,
+      elevation: 5,
+      alignItems: "center",
+      minWidth: "70%", // not full screen
+      maxWidth: "90%",
+    },
+    
+    modalTitle: {
+      fontFamily: 'Manrope_700Bold',
+      marginBottom: 12,
+      alignItems: "center",
+    },
+
+    
 
   });
 
-  return styles;
+  return { ...styles, colors }; // merge styles + colors
 }

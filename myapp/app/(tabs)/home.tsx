@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Pressable, Image } from 'react-native';
+import { View, Text, FlatList, Pressable, ImageBackground } from 'react-native';
 import { useThemedStyles } from './../styles/theme'; // import our shared styles
 import GreenAnimation from '../../components/green_animation';
 
@@ -54,52 +54,76 @@ export default function Home() {
     }
   }, [tasks]);
 
+  const [modalVisible1, setModalVisible1] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
+  
+
   return (
     <View style={styles.container}>
-      {/* Rolling Calendar */}
-      <View style={styles.calendarContainer}>
-        <FlatList
-          horizontal
-          data={days}
-          keyExtractor={(item) => item.day.toString()}
-          contentContainerStyle={{ justifyContent: 'center' }}
-          renderItem={({ item }) => (
-            <View
-              style={[
-                styles.calendarDay,
-                item.isToday && styles.calendarDayActive
-              ]}
-            >
-              <Text style={styles.calendarWeekDay}>{item.weekDay}</Text>
-              <Text style={styles.calendarDate}>{item.day}</Text>
-            </View>
-          )}
-        />
-      </View>
+      <ImageBackground
+        source={require('../../assets/images/green_background.png')} // local image
+        style={styles.backgroundImage}
+        resizeMode="cover" // or 'contain', depending on your image
+      >
+        <Text style={styles.tabTitle}>Cycle Tracking</Text>
+        
+        {/* Rolling Calendar */}
+        <View style={styles.calendarContainer}>
+          <FlatList
+            horizontal
+            data={days}
+            keyExtractor={(item) => item.day.toString()}
+            contentContainerStyle={{ justifyContent: 'center' }}
+            renderItem={({ item }) => (
+              <View
+                style={[
+                  styles.calendarDay,
+                  item.isToday && styles.calendarDayActive
+                ]}
+              >
+                <Text style={styles.calendarWeekDay}>{item.weekDay}</Text>
+                <Text style={styles.calendarDate}>{item.day}</Text>
+              </View>
+            )}
+          />
+        </View>
 
-      {/* Mascot */}
-      {/* <Image
-        source={require('../../assets/images/mascot_stars.png')}
-        style={styles.mascotImage}
-        resizeMode="contain"
-      /> */}
-      <GreenAnimation stage={stage} />
+        {/* Mascot */}
+        <GreenAnimation stage={stage} />
 
-      {/* Phase */}
-      <View style={styles.phaseContainer}>
-        <Text style={styles.phaseDay}>Day 3</Text>
-        <Text style={styles.phaseName}>Menstrual Phase</Text>
-      </View>
-
-      {/* Daily Tasks */}
-      <View style={styles.taskList}>
-        {tasks.map(task => (
-          <Pressable key={task.id} onPress={() => toggleTask(task.id)} style={[styles.taskItem, task.completed && styles.taskItemCompleted]}>
-            <Text style={styles.taskText}>{task.title}</Text>
-            <View style={[styles.checkbox, task.completed && styles.checkboxChecked]} />
+        {/* Phase */}
+        <View style={styles.phaseContainer}>
+          <Text style={styles.phaseDay}>Day 3</Text>
+          <Text style={styles.phaseName}>Menstrual Phase</Text>
+          <Pressable
+              style={styles.buttonContainer}
+              onPress={() => setModalVisible1(true)}
+          >
+              <Text style={styles.buttonText}>+ Track Flow</Text>
           </Pressable>
-        ))}
-      </View>
+        </View>
+
+        <View style={styles.dailyContainer}>
+            <Text style={styles.largeTabTitle}>Daily Tasks</Text>
+            <Pressable
+                style={styles.buttonContainer}
+                onPress={() => setModalVisible2(true)}
+            >
+                <Text style={styles.buttonText}>+ Add a Task</Text>
+            </Pressable>
+        </View>
+        
+
+        {/* Daily Tasks */}
+        <View style={styles.taskList}>
+          {tasks.map(task => (
+            <Pressable key={task.id} onPress={() => toggleTask(task.id)} style={[styles.taskItem, task.completed && styles.taskItemCompleted]}>
+              <Text style={styles.taskText}>{task.title}</Text>
+              <View style={[styles.checkbox, task.completed && styles.checkboxChecked]} />
+            </Pressable>
+          ))}
+        </View>
+      </ImageBackground>
     </View>
   );
 }
