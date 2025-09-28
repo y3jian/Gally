@@ -6,10 +6,18 @@ const API_BASE = "https://gally-eight.vercel.app";
 type Msg = { role: "user" | "assistant"; text: string };
 
 export default function ChatScreen() {
-  const [messages, setMessages] = useState<Msg[]>([]);
+  const [messages, setMessages] = useState<Msg[]>([
+    {
+      role: "assistant",
+      text:
+        "Hi! I’m Periodista, your go-to place for any questions period related. How can I help you today?",
+    }
+  ]);
+  
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const CHAT_URL = "https://gally-eight.vercel.app/api/chat";
+
 
   async function send() {
     const q = input.trim();
