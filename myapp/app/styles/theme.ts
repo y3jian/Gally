@@ -1,10 +1,13 @@
 import { useTheme } from '@react-navigation/native';
 import { StyleSheet, TextStyle, ViewStyle, ImageStyle, Dimensions  } from 'react-native';
 import { AppColors } from './colors';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export function useThemedStyles() {
+
   const { dark } = useTheme(); // boolean: true if dark mode
 
   // choose colors based on theme
@@ -29,13 +32,13 @@ export function useThemedStyles() {
       padding: 20,
       backgroundColor: colors.background,
     } as ViewStyle,
-
+    
     backgroundImage: {
-      // flex: 1,
+      flex: 1,
       justifyContent: 'center', // vertical alignment
       alignItems: 'center',     // horizontal alignment
-      // width: SCREEN_WIDTH, // full width
-      height: undefined,   // height adjusts to content
+     width: SCREEN_WIDTH, // full width
+      height: SCREEN_HEIGHT/2,   // height adjusts to content
       alignSelf: 'center', // horizontally center
       // paddingHorizontal: 100,
       // marginLeft: -100,           // shift left by 10px
@@ -47,7 +50,7 @@ export function useThemedStyles() {
       marginBottom: 20,
       paddingVertical: 12,
       borderRadius: 25,
-      width: '100%',
+      width: '70%',
       backgroundColor: colors.button,
     } as ViewStyle,
     
@@ -88,7 +91,7 @@ export function useThemedStyles() {
       alignItems: 'center',
       justifyContent: 'flex-start',
       padding: 20,
-      paddingTop: 100,
+      paddingTop: -10,
       backgroundColor: colors.background,
     } as ViewStyle,
 
