@@ -157,12 +157,15 @@ export function useThemedStyles() {
       paddingTop: 0,
       width: '100%',
       alignItems: 'center',
+      
      },
-
 
     calendarContainer: {
       flexDirection: 'row',
       marginBottom: 20,
+      paddingTop: 8,
+      paddingBottom: 4,
+      alignItems: 'center',
     },
     calendarDay: {
       padding: 10,
