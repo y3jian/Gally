@@ -1,4 +1,7 @@
 # Café-flo ☕️
+## 💻 Tech Stack
+React-native, TypeScript, Node.js, Gemini API, Figma
+
 ## 💡Inspiration
 _"Wait... what even is the luteal phase?"_ our team asked each other, barely an hour into first meeting. You would think that four young women, all who use period apps, would know the answer. But the truth is, most of us don't, and we are not alone. In Canada, 45% of teenage girls reported that they didn't fully understand their own menstrual cycles, even though it impacts our daily lives. 
 
