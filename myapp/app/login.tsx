@@ -16,7 +16,7 @@ export default function SignIn() {
   return (
     <View style={styles.welcomeContainer}>
       <ImageBackground
-        source={require('../assets/images/signinout_background.png')} // local image
+        source={require('../assets/images/pink_background.png')} // local image
         style={styles.backgroundImage}
         resizeMode="cover" // or 'contain', depending on your image
       >

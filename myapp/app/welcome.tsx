@@ -10,7 +10,7 @@ export default function Welcome() {
   return (
     <View style={styles.welcomeContainer}>
       <ImageBackground
-        source={require('../assets/images/welcome_background.png')} // local image
+        source={require('../assets/images/green_background.png')} // local image
         style={styles.backgroundImage}
         resizeMode="cover" // or 'contain', depending on your image
       >

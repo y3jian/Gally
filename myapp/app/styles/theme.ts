@@ -157,7 +157,87 @@ export function useThemedStyles() {
       paddingTop: 0,
       width: '100%',
       alignItems: 'center',
-     }
+     },
+
+
+    calendarContainer: {
+      flexDirection: 'row',
+      marginBottom: 20,
+    },
+    calendarDay: {
+      padding: 10,
+      marginHorizontal: 5,
+      borderRadius: 10,
+      alignItems: 'center',
+      backgroundColor: colors.card,
+    },
+    calendarDayActive: {
+      backgroundColor: colors.green1,
+    },
+    calendarWeekDay: {
+      fontFamily: 'Manrope_400Regular',
+      fontSize: 12,
+      color: colors.text,
+    },
+    calendarDate: {
+      fontFamily: 'Manrope_700Bold',
+      fontSize: 16,
+      color: colors.text,
+    },
+    mascotImage: {
+      width: 150,
+      height: 150,
+      marginVertical: 20,
+    },
+    phaseContainer: {
+      alignItems: 'center',
+      marginBottom: 20,
+      padding: 10,
+      borderRadius: 12,
+      backgroundColor: colors.card,
+    },
+    phaseDay: {
+      fontFamily: 'Manrope_700Bold',
+      fontSize: 20,
+      marginBottom: 5,
+    },
+    phaseName: {
+      fontFamily: 'Manrope_400Regular',
+      fontSize: 16,
+      color: colors.text,
+    },
+    taskList: {
+      width: '100%',
+    },
+    taskItem: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: 12,
+      marginVertical: 4,
+      borderRadius: 10,
+      backgroundColor: colors.card,
+    },
+    taskItemCompleted: {
+      backgroundColor: colors.green2,
+    },
+    taskText: {
+      fontFamily: 'Manrope_400Regular',
+      fontSize: 16,
+    },
+    checkbox: {
+      width: 20,
+      height: 20,
+      borderRadius: 4,
+      borderWidth: 1,
+      borderColor: colors.text,
+    },
+    checkboxChecked: {
+      backgroundColor: colors.green1,
+    },
+
+
+
 
   });
 
