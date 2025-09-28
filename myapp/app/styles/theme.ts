@@ -375,7 +375,42 @@ export function useThemedStyles() {
       alignItems: "center",
     },
 
-    
+    //====== Chatbot ======
+    avatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: "#FFEDEE",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 12,
+    overflow: "hidden",
+  }as ImageStyle,
+  avatarSmall: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    overflow: "hidden",
+    marginHorizontal: 6,
+  },
+  avatarImage: {
+    width: "100%",
+    height: "100%",
+  }as ImageStyle,
+
+  chatHeader:{
+    flexDirection: "row",
+      alignItems: "center",
+      backgroundColor: "shy-pink",   // soft pink background
+      paddingVertical: 12,
+      paddingHorizontal: 16,
+      borderBottomWidth: 0.5,
+      borderColor: "card",
+  }as ViewStyle,
+
+  chatTitle:{
+    fontWeight: "700", fontSize: 16, color: "#000"
+  }as TextStyle,
 
   });
 

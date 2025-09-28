@@ -18,7 +18,7 @@ export default function SignIn() {
       <ImageBackground
         source={require('../assets/images/pink_background.png')} // local image
         style={styles.backgroundImage}
-        resizeMode="cover" // or 'contain', depending on your image
+        resizeMode="cover"
       >
         
       <Text style={styles.title}>Login</Text>
