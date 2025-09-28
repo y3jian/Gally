@@ -1,18 +1,18 @@
-import { Tabs } from 'expo-router';
+import { Tabs} from 'expo-router';
+import { Image } from 'react-native';
 import React from 'react';
+import { useThemedStyles } from './../styles/theme'; // import our shared styles
 
 import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const styles = useThemedStyles();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: styles.colors.background,
         headerShown: false,
         tabBarButton: HapticTab,
       }}>
@@ -20,42 +20,75 @@ export default function TabLayout() {
         name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="chat"
-        options={{
-          title: 'Chat',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="info"
-        options={{
-          title: 'info',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="friends"
-        options={{
-          title: 'friends',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('../../assets/icons/home.png')}
+              style={[styles.icon,
+                {tintColor: focused ? styles.colors.button : styles.colors.background}, // changes color when active
+              ]}
+              resizeMode="contain"
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="cafe"
         options={{
           title: 'cafe',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('../../assets/icons/coffee.png')}
+              style={[styles.icon,
+                {tintColor: focused ? styles.colors.button : styles.colors.background}, // changes color when active
+              ]}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="chat"
+        options={{
+          title: 'Chat',
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('../../assets/icons/message.png')}
+              style={[styles.icon,
+                {tintColor: focused ? styles.colors.button : styles.colors.background}, // changes color when active
+              ]}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="friends"
+        options={{
+          title: 'friends',
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('../../assets/icons/profile-2user.png')}
+              style={[styles.icon,
+                {tintColor: focused ? styles.colors.button : styles.colors.background}, // changes color when active
+              ]}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="info"
+        options={{
+          title: 'info',
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('../../assets/icons/blur.png')}
+              style={[styles.icon,
+                {tintColor: focused ? styles.colors.button : styles.colors.background}, // changes color when active
+              ]}
+              resizeMode="contain"
+            />
+          ),
         }}
       />
     </Tabs>

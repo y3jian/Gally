@@ -1,12 +1,14 @@
 import { Stack } from 'expo-router';
-import { ThemeProvider, DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useFonts, Manrope_400Regular, Manrope_600SemiBold, Manrope_700Bold } from '@expo-google-fonts/manrope';
 import React from 'react';
+import { LightTheme, DarkTheme } from './styles/nav_theme';
+import { useColorScheme } from 'react-native';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const scheme = useColorScheme(); // 'light' | 'dark' | null
+  // const styles = useThemedStyles();
 
   // Load Manrope fonts
   const [fontsLoaded] = useFonts({
@@ -19,7 +21,7 @@ export default function RootLayout() {
   if (!fontsLoaded) return null; // or <AppLoading /> if you want a splash screen
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={scheme === 'dark' ? LightTheme : DarkTheme }>
       <Stack screenOptions={{ headerShown: false }}>
         {/* Auth flow */}
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
@@ -32,7 +34,7 @@ export default function RootLayout() {
         {/* Modals */}
         <Stack.Screen name="modal" options={{ headerShown: false , presentation: 'modal' }} />
       </Stack>
-      <StatusBar style="auto" />
+      <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
     </ThemeProvider>
   );
 }

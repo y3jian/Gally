@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker'; // install this
-import { useThemedStyles } from './../styles/theme';
+import { useThemedStyles } from '../app/styles/theme';
 
 export default function FlowModal({ visible, onClose, onSave }: {
   visible: boolean;

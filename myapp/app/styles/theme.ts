@@ -12,6 +12,7 @@ export function useThemedStyles() {
 
   // choose colors based on theme
   const colors = {
+    primary: AppColors.black,
     background: dark ? AppColors.black : AppColors.white,
     text: dark ? AppColors.white : AppColors.black,
     card: AppColors.card,
@@ -22,7 +23,8 @@ export function useThemedStyles() {
     button: AppColors.matcha_green,
     green1: AppColors.tulipe_leafs,
     green2: AppColors.grounding_green,
-    green3: AppColors.sleeping_green
+    green3: AppColors.sleeping_green,
+    notification: AppColors.black,
   };
 
   const styles = StyleSheet.create({
@@ -54,6 +56,11 @@ export function useThemedStyles() {
       alignSelf: 'center', // horizontally center
       // paddingHorizontal: 100,
       // marginLeft: -100,           // shift left by 10px
+    },
+
+    icon: {
+      width: 24,
+      height: 24,
     },
 
     //======= Buttons ========
@@ -139,7 +146,7 @@ export function useThemedStyles() {
       // alignItems: 'center',
       alignSelf: 'flex-start',
       marginBottom: 20,
-      // marginLeft: 50,
+      marginLeft: 10,
       color: colors.text,
     } as TextStyle,
 
@@ -345,6 +352,8 @@ export function useThemedStyles() {
     card: {
       backgroundColor: colors.background,
       borderRadius: 25,
+      borderColor: colors.border,
+      borderWidth: 1,
       overflow: 'hidden', // ensures bar + content respect rounded corners
       marginVertical: 8,
       shadowColor: '#000',
@@ -355,7 +364,7 @@ export function useThemedStyles() {
       width: "80%",
     },
     topBar: {
-      height: 20,
+      height: 25,
       backgroundColor: colors.pink2, // default fallback
     },
     content: {

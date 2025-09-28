@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Pressable, ImageBackground } from 'react-native';
 import { useThemedStyles } from './../styles/theme'; // import our shared styles
 import GreenAnimation from '../../components/green_animation';
-import FlowModal from './flow_modal';
+import FlowModal from '../../components/flow_modal';
 
 interface Task {
   id: number;
@@ -66,7 +66,7 @@ export default function Home() {
         style={styles.backgroundImage}
         resizeMode="cover" // or 'contain', depending on your image
       >
-        <Text style={styles.tabTitle}>Cycle Tracking</Text>
+        <Text style={[styles.tabTitle, { marginTop: 40 }]}>Cycle Tracking</Text>
         
         {/* Rolling Calendar */}
         <View style={styles.calendarContainer}>
